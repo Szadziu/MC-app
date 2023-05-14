@@ -6,7 +6,7 @@
                 <p>Wykonane: {{ completedTodos }}</p>
             </h2>
             <ul class="todo-list__list">
-                <TodoItem v-for="item in todos" :key="item.id" :item="item" />
+                <TodoItem v-for="item in list" :key="item.id" :item="item" />
             </ul>
             <div class="todo-list__add-item">
                 <button @click="addTodo" class="todo-list__add-item-button">
@@ -29,10 +29,15 @@ import {ref, computed} from 'vue';
 import Card from './Card.vue';
 import CustomIcon from './CustomIcon.vue';
 import TodoItem from './TodoItem.vue';
-import {TODOS} from '../dummy_data';
 import {TodoItemType} from '../types';
 
-const todos = ref<TodoItemType[]>(TODOS);
+interface TodoListProps {
+    list: TodoItemType[];
+    onAddTodo: (item: TodoItemType) => void;
+}
+
+const {list, onAddTodo} = defineProps<TodoListProps>();
+
 const newTodoText = ref<string>('');
 const todoListRef = ref<HTMLElement | null>(null);
 
@@ -51,10 +56,10 @@ const addTodo = () => {
         text: newTodoText.value,
         completed: false,
     };
-    todos.value.push(todo);
+    onAddTodo(todo);
     newTodoText.value = '';
     todoListRef.value?.scrollTo(0, todoListRef.value.scrollHeight);
 };
 
-const completedTodos = computed(() => todos.value.filter((todo) => todo.completed).length);
+const completedTodos = computed(() => list.filter((todo) => todo.completed).length);
 </script>

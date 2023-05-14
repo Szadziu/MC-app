@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <DefaultLayout title="Muscode App">
-            <TodoList />
+            <TodoList :list="todos" :onAddTodo="addTodo"/>
             <ProductsList />
             <Products />
             <button
@@ -22,6 +22,14 @@ import Products from './components/Products.vue';
 import ProductsList from './components/ProductsList.vue';
 import TodoList from './components/TodoList.vue';
 import ModalDialog from './components/ModalDialog.vue';
+import { TODOS } from './dummy_data';
+import { TodoItemType } from './types';
+
+const todos = ref<TodoItemType[]>(TODOS);
+
+const addTodo = (item: TodoItemType) => {
+    todos.value.push(item);
+}
 
 const showModal = ref(false);
 </script>
