@@ -1,0 +1,56 @@
+.product-tile {
+    display: flex;
+    flex-direction: column;
+    width: 33.3%;
+    height: fit-content;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    &__image {
+        display: block;
+        width: 80%;
+        height: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+
+    &__prices {
+        margin-top: 0.8rem;
+        text-align: center;
+    }
+
+    &__title {
+        font-size: 1.6rem;
+        font-family: $SECONDARY_FONT_FAMILY;
+        margin-bottom: 0.8rem;
+        font-weight: $SECONDARY_FONT_WEIGHT_MEDIUM;
+        line-height: 1.4;
+    }
+
+    &__regular-price {
+        font-size: 1.6rem;
+        font-family: $SECONDARY_FONT_FAMILY;
+        font-weight: $SECONDARY_FONT_WEIGHT_MEDIUM;
+        margin-bottom: 0.8rem;
+
+        &--discount {
+            text-decoration: line-through;
+        }
+    }
+
+    &__discount-badge {
+        position: absolute;
+        top: 30px;
+        right: -60px;
+        width: 200px;
+        transform: rotate(45deg);
+        background-color: black;
+        color: #fff;
+        padding: 0.2rem 0.8rem;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+}
