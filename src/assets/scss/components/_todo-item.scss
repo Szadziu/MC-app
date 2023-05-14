@@ -1,24 +1,24 @@
 .todo-item {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $BORDER_COLOR;
     padding: 0.8rem;
 
     &__checkbox {
         margin-right: 0.8rem;
         width: 1.3em;
         height: 1.3em;
-        background-color: white;
+        background-color: $BACKGROUND_COLOR;
         border-radius: 50%;
         vertical-align: middle;
-        border: 1px solid #ddd;
+        border: 1px solid $BORDER_COLOR;
         appearance: none;
         -webkit-appearance: none;
         outline: none;
         cursor: pointer;
 
         &:checked {
-            background-color: gray;
+            background-color: $BUTTON_CHECKED_COLOR;
         }
     }
 }

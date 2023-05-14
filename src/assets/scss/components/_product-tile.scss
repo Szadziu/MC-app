@@ -24,16 +24,14 @@
 
     &__title {
         font-size: 1.6rem;
-        font-family: $SECONDARY_FONT_FAMILY;
         margin-bottom: 0.8rem;
-        font-weight: $SECONDARY_FONT_WEIGHT_MEDIUM;
+        font-weight: $FONT_WEIGHT_MEDIUM;
         line-height: 1.4;
     }
 
     &__regular-price {
         font-size: 1.6rem;
-        font-family: $SECONDARY_FONT_FAMILY;
-        font-weight: $SECONDARY_FONT_WEIGHT_MEDIUM;
+        font-weight: $FONT_WEIGHT_MEDIUM;
         margin-bottom: 0.8rem;
 
         &--discount {
@@ -43,11 +41,11 @@
 
     &__discount-badge {
         position: absolute;
-        top: 30px;
-        right: -60px;
-        width: 200px;
+        top: 3rem;
+        right: -6rem;
+        width: 20rem;
         transform: rotate(45deg);
-        background-color: black;
+        background-color: $BLACK_COLOR;
         color: #fff;
         padding: 0.2rem 0.8rem;
         font-size: 1.2rem;

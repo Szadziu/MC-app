@@ -1,5 +1,4 @@
 .products-list {
-    // border: 1px solid green;
     grid-area: 1/2/2/4;
     min-height: 35rem;
 
@@ -39,7 +38,7 @@
         }
 
         & tr {
-            border-bottom: 1px solid #ccc;
+            border-bottom: 1px solid $BORDER_COLOR;
         }
 
         &-header {
