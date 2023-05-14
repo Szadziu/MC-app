@@ -1,0 +1,16 @@
+.product-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        padding: 0.8rem;
+    }
+
+    &__input, &__input--select {
+        border: none;
+        border-bottom: 1px solid #ccc;
+    }
+}

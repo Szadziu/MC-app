@@ -15,4 +15,60 @@
     height: 100%;
     z-index: 100;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        padding: 0.8rem;
+        font-size: 1.6rem;
+        font-weight: 500;
+        border-bottom: 3px solid darkblue;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    &__image {
+        width: 20rem;
+        height: 20rem;
+        border-radius: 50%;
+        box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.5);
+        margin: 2.4rem 0;
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    &__footer {
+        padding: 0.8rem;
+        border-top: 1px solid #ccc;
+    }
+
+    &__button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.8rem;
+        border: 1px solid #ccc;
+        color: #777;
+        background-color: transparent;
+        width: 6rem;
+        margin-right: 0.4rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        cursor: pointer;
+
+        &--save {
+            background-color: rgb(123, 68, 123);
+            color: #fff;
+        }
+    }
 }
