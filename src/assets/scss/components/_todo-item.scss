@@ -1,0 +1,24 @@
+.todo-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 0.8rem;
+
+    &__checkbox {
+        margin-right: 0.8rem;
+        width: 1.3em;
+        height: 1.3em;
+        background-color: white;
+        border-radius: 50%;
+        vertical-align: middle;
+        border: 1px solid #ddd;
+        appearance: none;
+        -webkit-appearance: none;
+        outline: none;
+        cursor: pointer;
+
+        &:checked {
+            background-color: gray;
+        }
+    }
+}

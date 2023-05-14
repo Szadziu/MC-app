@@ -1,0 +1,46 @@
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    grid-area: 1/1/2/2;
+    height: 100%;
+
+    &__title {
+        display: inline-flex;
+        justify-content: space-between;
+        font-size: 1.4rem;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        padding: 1.6rem 0;
+        list-style: none;
+        flex-grow: 1;
+    }
+
+    &__add-item {
+        display: flex;
+        padding: 0.8rem;
+        border-bottom: 1px solid #ccc;
+
+        &-button {
+            border: none;
+            text-align: left;
+            background-color: transparent;
+            color: #bbb;
+            cursor: pointer;
+        
+            & svg {
+                margin-right: 0.8rem;
+            }
+        }
+
+        &-input {
+            border: none;
+            background-color: transparent;
+            font-size: 1.4rem;
+            width: 100%;
+            outline: none;
+        }
+    }
+}
