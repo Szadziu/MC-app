@@ -1,13 +1,19 @@
 .todo-item {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid $BORDER_COLOR;
+    border-bottom: 0.1rem solid $BORDER_COLOR;
     padding: 0.8rem;
 
+    &__text {
+        &--completed {
+            text-decoration: line-through;
+        }
+    }
+
     &__checkbox {
-        margin-right: 0.8rem;
         width: 1.3em;
         height: 1.3em;
+        margin-right: 0.8rem;
         background-color: $BACKGROUND_COLOR;
         border-radius: 50%;
         vertical-align: middle;

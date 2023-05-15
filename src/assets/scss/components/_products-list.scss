@@ -1,6 +1,6 @@
 .products-list {
     grid-area: 1/2/2/4;
-    min-height: 35rem;
+    max-height: 35rem;
 
     &__title {
         font-size: 1.4rem;
@@ -14,14 +14,14 @@
 
         & th,
         td {
-            padding: 0.4rem;
             width: 15%;
+            padding: 0.4rem;
         }
 
         & th:first-child,
         td:first-child {
-            text-align: center;
             width: min(5%, 3rem);
+            text-align: center;
         }
 
         & th:nth-child(2),
@@ -38,7 +38,7 @@
         }
 
         & tr {
-            border-bottom: 1px solid $BORDER_COLOR;
+            border-bottom: 0.1rem solid $BORDER_COLOR;
         }
 
         &-header {

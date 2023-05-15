@@ -1,19 +1,52 @@
-import { TodoItemType } from "./types";
+import {ProductItemType, TodoItemType} from './types';
 
 export const TODOS: TodoItemType[] = [
     {
         id: 1,
-        text: "Learn React",
-        completed: true
+        text: 'Learn React',
+        completed: true,
     },
     {
         id: 2,
-        text: "Learn Redux",
-        completed: false
+        text: 'Learn Redux',
+        completed: false,
     },
     {
         id: 3,
-        text: "Learn React Router",
-        completed: false
-    }
+        text: 'Learn React Router',
+        completed: false,
+    },
+];
+
+export const PRODUCTS: ProductItemType[] = [
+    {
+        id: 0,
+        name: 'iPhone 6s Plus 16GB',
+        price: 649,
+        discountPrice: 450,
+        currency: '$',
+        image: './src/assets/imgs/img1.png',
+    },
+    {
+        id: 1,
+        name: 'iPad Pro 32GB 9.7 inch WiFi + Cellular Space Gray',
+        price: 600,
+        currency: '$',
+        discountPrice: 300,
+        image: './src/assets/imgs/img2.png',
+    },
+    {
+        id: 2,
+        name: 'Macbook Pro 13 inch 256GB 3.1GHz Space Gray 2017',
+        price: 8000,
+        currency: 'PLN',
+        image: './src/assets/imgs/img3.png',
+    },
+    {
+        id: 3,
+        name: 'iPhone 13 Max Pro 16GB',
+        price: 10000,
+        currency: 'PLN',
+        image: './src/assets/imgs/img2.png',
+    },
 ];

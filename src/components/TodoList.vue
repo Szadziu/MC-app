@@ -41,11 +41,6 @@ const {list, onAddTodo} = defineProps<TodoListProps>();
 const newTodoText = ref<string>('');
 const todoListRef = ref<HTMLElement | null>(null);
 
-const handleNewTodo = (e: Event) => {
-    const target = e.target as HTMLInputElement;
-    newTodoText.value = target.value;
-};
-
 const addTodo = () => {
     if (!newTodoText.value.trim()) {
         newTodoText.value = '';
@@ -59,6 +54,11 @@ const addTodo = () => {
     onAddTodo(todo);
     newTodoText.value = '';
     todoListRef.value?.scrollTo(0, todoListRef.value.scrollHeight);
+};
+
+const handleNewTodo = (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    newTodoText.value = target.value;
 };
 
 const completedTodos = computed(() => list.filter((todo) => todo.completed).length);

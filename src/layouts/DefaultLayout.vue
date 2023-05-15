@@ -8,6 +8,7 @@
 </template>
 
 <script setup lang="ts">
+
 interface DefaultLayoutProps {
     title: string;
 }

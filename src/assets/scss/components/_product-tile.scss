@@ -1,20 +1,20 @@
 .product-tile {
+    position: relative;
     display: flex;
     flex-direction: column;
-    width: 33.3%;
-    height: fit-content;
-    position: relative;
+    min-width: calc(33.3% - 1.6rem);
     overflow: hidden;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+    border-radius: 0.4rem;
+    cursor: pointer;
 
     &__image {
         display: block;
         width: 80%;
         height: 100%;
+        margin: 0 auto;
         aspect-ratio: 4 / 3;
         object-fit: contain;
-        margin: 0 auto;
     }
 
     &__prices {
@@ -23,16 +23,23 @@
     }
 
     &__title {
-        font-size: 1.6rem;
+        max-width: 100%;
         margin-bottom: 0.8rem;
         font-weight: $FONT_WEIGHT_MEDIUM;
-        line-height: 1.4;
+        line-height: $BASE_LINE_HEIGHT;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &--discount {
+            max-width: 80%;
+        }
     }
 
     &__regular-price {
-        font-size: 1.6rem;
-        font-weight: $FONT_WEIGHT_MEDIUM;
         margin-bottom: 0.8rem;
+        color: $BUTTON_CHECKED_COLOR;
+        font-weight: $FONT_WEIGHT_MEDIUM;
 
         &--discount {
             text-decoration: line-through;
@@ -46,7 +53,7 @@
         width: 20rem;
         transform: rotate(45deg);
         background-color: $BLACK_COLOR;
-        color: #fff;
+        color: $WHITE_COLOR;
         padding: 0.2rem 0.8rem;
         font-size: 1.2rem;
         text-align: center;

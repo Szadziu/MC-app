@@ -3,3 +3,11 @@ export interface TodoItemType {
     text: string;
     completed: boolean;
 }
+export interface ProductItemType {
+    id: number;
+    name: string;
+    price: number;
+    discountPrice?: number;
+    currency: string;
+    image?: string;
+}

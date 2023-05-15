@@ -1,25 +1,34 @@
 <template>
     <teleport to="body">
-        <div v-if="showModal" @click="closeModal" class="modal-backdrop" ref="modal-backdrop"></div>
-        <div v-show="showModal" class="modal" role="dialog" ref="modal" aria-modal="true" aria-labelledby="modal-headline">
-            <div class="modal__header">Edycja produktu: iPhone 6s Plus 16GB</div>
-            <div class="modal__content">
-                <div class="modal__image">
-                    <img src="https://picsum.photos/200/300" alt="iPhone 6s Plus 16GB" />
+        <transition name="fade">
+            <div v-if="showModal" @click="closeModal" class="modal-backdrop" ref="modal-backdrop"></div>
+        </transition>
+        <transition name="slide">
+            <div v-show="showModal" class="modal" role="dialog" ref="modal" aria-modal="true" aria-labelledby="modal-headline">
+                <div class="modal__header">
+                    <slot name="header" />
                 </div>
-                <ProductForm />
+                <div class="modal__content">
+                    <slot />
+                </div>
+                <div class="modal__footer">
+                    <slot name="footer" />
+                </div>
             </div>
-            <div class="modal__footer">
-                <button @click="closeModal" class="modal__button modal__button--save">Zapisz</button>
-                <button @click="closeModal" class="modal__button modal__button--cancel">Anuluj</button>
-            </div>
-        </div>
+        </transition>
     </teleport>
 </template>
 
 <script setup lang="ts">
 import {ref, watch} from 'vue';
-import ProductForm from './ProductForm.vue';
+
+interface ModalDialogProps {
+    show?: boolean;
+}
+
+const props = withDefaults(defineProps<ModalDialogProps>(), {
+    show: false,
+});
 
 const showModal = ref(false);
 const emit = defineEmits(['close']);
@@ -35,11 +44,4 @@ watch(
     }
 );
 
-interface ModalDialogProps {
-    show?: boolean;
-}
-
-const props = withDefaults(defineProps<ModalDialogProps>(), {
-    show: false,
-});
 </script>

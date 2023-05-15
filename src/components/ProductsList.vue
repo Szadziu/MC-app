@@ -13,26 +13,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>0</td>
-                        <td>iPhone 6s Plus 16GB</td>
-                        <td>649</td>
-                        <td>1000</td>
-                        <td>$</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>iPad Pro 32GB</td>
-                        <td>600</td>
-                        <td>800</td>
-                        <td>$</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>MacBook Pro</td>
-                        <td></td>
-                        <td>8000</td>
-                        <td>PLN</td>
+                    <tr v-for="product in products">
+                        <td>{{ product.id }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.discountPrice }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.currency }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -42,4 +28,11 @@
 
 <script setup lang="ts">
 import Card from './Card.vue';
-</script>
+import {ProductItemType} from '../types';
+
+interface ProductsListProps {
+    products: ProductItemType[];
+}
+
+const {products} = defineProps<ProductsListProps>();
+</script>   
