@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import Card from './Card.vue';
 import {calculateDiscountPercentage} from '../helpers/calculateDiscountPercentage';
-import {ProductItemType} from '../types';
+import {ProductItem} from '../types';
 
-const {product} = defineProps<{product: ProductItemType}>();
+const {product} = defineProps<{product: ProductItem}>();
 </script>

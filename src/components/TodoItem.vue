@@ -1,19 +1,25 @@
 <template>
     <li class="todo-item">
-        <input @change="updateTodo" type="checkbox" class="todo-item__checkbox" :checked="isChecked" />
+        <input
+            @change="updateTodo"
+            type="checkbox"
+            class="todo-item__checkbox"
+            :checked="isChecked" />
+        <CustomIcon v-if="isChecked" @click="updateTodo" name="check" color="#862583" />
         <span class="todo-item__text" :class="{'todo-item__text--completed': isChecked}">{{ item.text }}</span>
     </li>
 </template>
 
 <script setup lang="ts">
 import {ref} from 'vue';
-import {TodoItemType} from '../types';
+import {TodoItem} from '../types';
+import CustomIcon from './CustomIcon.vue';
 
-interface TodoItemProops {
-    item: TodoItemType;
+interface TodoItemProps {
+    item: TodoItem;
 }
 
-const {item} = defineProps<TodoItemProops>();
+const {item} = defineProps<TodoItemProps>();
 
 const isChecked = ref<boolean>(item.completed);
 

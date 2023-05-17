@@ -1,21 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
-// #### VARIABLES ####
-$BASE_FONT_SIZE: 10px;
-$BASE_LINE_HEIGHT: 1.5;
-
-$FONT_COLOR: #384a5c;
-$TITLE_COLOR: #333;
-$WHITE_COLOR: #fff;
-$BLACK_COLOR: #000;
-$BUTTON_CHECKED_COLOR: #862583;
-$BORDER_COLOR: #b2b2b2;
-$BACKGROUND_COLOR: #f5f8fa;
-
-$FONT_FAMILY: 'Roboto', Arial, serif;
-$FONT_WEIGHT_REGULAR: 400;
-$FONT_WEIGHT_MEDIUM: 500;
-$FONT_WEIGHT_BOLD: 700;
+@import './variables';
+@import './components/index';
+@import './layouts/index';
 
 // #### INITIAL STYLES ####
 
@@ -75,6 +61,3 @@ body {
 .slide-leave-to {
     transform: translateX(100%);
 }
-
-@import './components/index';
-@import './layouts/index';

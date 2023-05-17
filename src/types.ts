@@ -1,9 +1,13 @@
-export interface TodoItemType {
+import { defineComponent } from "vue";
+
+export type IconComponents = Record<string, ReturnType<typeof defineComponent>>;
+ 
+export interface TodoItem {
     id: number;
     text: string;
     completed: boolean;
 }
-export interface ProductItemType {
+export interface ProductItem {
     id: number;
     name: string;
     price: number;

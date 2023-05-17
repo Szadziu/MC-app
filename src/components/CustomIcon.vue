@@ -1,8 +1,8 @@
 <template>
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        :width="computedSize"
-        :height="computedSize"
+        :width="size"
+        :height="size"
         x="0px"
         y="0px"
         viewBox="0 0 24 24"
@@ -16,13 +16,11 @@
 </template>
 
 <script setup lang="ts">
-import {ComputedRef, computed, defineComponent} from 'vue';
+import {computed} from 'vue';
 import CheckIcon from './icons/CheckIcon.vue';
 import PlusIcon from './icons/PlusIcon.vue';
+import { IconComponents } from '../types';
 
-type IconComponents = {
-    [key: string]: ReturnType<typeof defineComponent>;
-};
 
 const iconComponents: IconComponents = {
     plus: PlusIcon,
@@ -31,7 +29,7 @@ const iconComponents: IconComponents = {
 
 interface CustomIconProps {
     name: string;
-    size?: number | string;
+    size?: number;
     color?: string;
 }
 
@@ -40,12 +38,8 @@ const {color, size, name} = withDefaults(defineProps<CustomIconProps>(), {
     color: '#000',
 });
 
-const computedSize: ComputedRef<number> = computed(() => {
-    return parseInt(String(size));
-});
-
 const iconComponent = computed(() => {
-    const iconName = name.replace(/-./g, (x) => x[1].toUpperCase());
+    const iconName = name.replace(/-./g, ([_, firstLetterDoubleName]) => firstLetterDoubleName.toUpperCase());
     return iconComponents[iconName];
 });
 </script>

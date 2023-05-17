@@ -1,8 +1,17 @@
 .todo-item {
+    position: relative;
     display: flex;
     align-items: center;
     border-bottom: 0.1rem solid $BORDER_COLOR;
     padding: 0.8rem;
+
+    svg {
+        position: absolute;
+        width: 1.3em;
+        height: 1.3em;
+        margin-right: 0.8rem;
+        cursor: pointer;
+    }
 
     &__text {
         &--completed {
@@ -24,7 +33,7 @@
         cursor: pointer;
 
         &:checked {
-            background-color: $BUTTON_CHECKED_COLOR;
+            opacity: 0;
         }
     }
 }

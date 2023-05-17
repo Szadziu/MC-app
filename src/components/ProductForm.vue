@@ -27,10 +27,10 @@
 </template>
 
 <script setup lang="ts">
-import {ProductItemType} from '../types';
+import {ProductItem} from '../types';
 
 interface ProductFormProps {
-    product: ProductItemType;
+    product: ProductItem;
 }
 
 const {product} = defineProps<ProductFormProps>();

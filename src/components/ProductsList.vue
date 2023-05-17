@@ -28,10 +28,10 @@
 
 <script setup lang="ts">
 import Card from './Card.vue';
-import {ProductItemType} from '../types';
+import {ProductItem} from '../types';
 
 interface ProductsListProps {
-    products: ProductItemType[];
+    products: ProductItem[];
 }
 
 const {products} = defineProps<ProductsListProps>();

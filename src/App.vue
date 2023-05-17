@@ -5,11 +5,11 @@
             <ProductsList :products="products" />
             <ProductTile @click="() => editProduct(product)" v-for="product in products" :product="product" :key="product.id" />
         </DefaultLayout>
-        <ModalDialog :show="showModal" @close="closeModal">
+        <ModalDialog :isVisible="showModal" @close="closeModal">
             <template v-slot:header> Edycja produktu: {{ originalName }} </template>
             <ProductForm :product="currentProduct" />
             <template v-slot:footer>
-                <button @click="() => updateProduct(currentProduct)" class="modal__button modal__button--save">Zapisz</button>
+                <button @click="updateProduct" class="modal__button modal__button--save">Zapisz</button>
                 <button @click="closeModal" class="modal__button modal__button--cancel">Anuluj</button>
             </template>
         </ModalDialog>
@@ -25,15 +25,15 @@ import ProductsList from './components/ProductsList.vue';
 import ProductTile from './components/ProductTile.vue';
 import TodoList from './components/TodoList.vue';
 import {TODOS, PRODUCTS} from './dummy_data';
-import {TodoItemType, ProductItemType} from './types';
+import {TodoItem, ProductItem} from './types';
 
-const todos = ref<TodoItemType[]>(TODOS);
-const products = ref<ProductItemType[]>(PRODUCTS);
-const currentProduct = ref<ProductItemType>(products.value[0]);
+const todos = ref<TodoItem[]>(TODOS);
+const products = ref<ProductItem[]>(PRODUCTS);
+const currentProduct = ref<ProductItem>(products.value[0]);
 const originalName = ref(currentProduct.value.name);
 const showModal = ref(false);
 
-const addTodo = (item: TodoItemType) => {
+const addTodo = (item: TodoItem) => {
     todos.value.push(item);
 };
 
@@ -41,29 +41,33 @@ const closeModal = () => {
     showModal.value = false;
 };
 
-const editProduct = (product: ProductItemType) => {
-    currentProduct.value = {...product};
+const editProduct = (product: ProductItem) => {
+    const copyProduct = {...product};
+    originalName.value = copyProduct.name;
+    currentProduct.value = copyProduct;
     showModal.value = true;
 };
 
-const updateProduct = (product: ProductItemType) => {
-    if (!validateProduct(product)) return;
-    const index = products.value.findIndex((item) => item.id === product.id);
-    products.value[index] = product;
-    originalName.value = product.name;
+const updateProduct = () => {
+    if (!validateProduct(currentProduct.value)) return;
+    const currentProductIndex = products.value.findIndex((item) => item.id === currentProduct.value.id);
+    products.value[currentProductIndex] = currentProduct.value;
+    originalName.value = currentProduct.value.name;
     closeModal();
 };
 
-const validateProduct = (product: ProductItemType) => {
+const validateProduct = (product: ProductItem) => {
     if (product.name === '') {
         alert('Nazwa produktu nie może być pusta!');
         return false;
     }
-    if (product.price <= 0) {
+
+    if (product.price < 0) {
         alert('Cena produktu musi być większa od 0!');
         return false;
     }
-    if (product.discountPrice && product.discountPrice > 0 && product.discountPrice >= product.price) {
+
+    if (product.discountPrice && product.discountPrice >= product.price) {
         alert('Cena promocyjna musi być mniejsza od ceny podstawowej!');
         return false;
     }

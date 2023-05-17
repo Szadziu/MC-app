@@ -1,6 +1,6 @@
-import {ProductItemType, TodoItemType} from './types';
+import {ProductItem, TodoItem} from './types';
 
-export const TODOS: TodoItemType[] = [
+export const TODOS: TodoItem[] = [
     {
         id: 1,
         text: 'Learn React',
@@ -16,9 +16,14 @@ export const TODOS: TodoItemType[] = [
         text: 'Learn React Router',
         completed: false,
     },
+    {
+        id: 4,
+        text: 'Learn Vue',
+        completed: false,
+    },
 ];
 
-export const PRODUCTS: ProductItemType[] = [
+export const PRODUCTS: ProductItem[] = [
     {
         id: 0,
         name: 'iPhone 6s Plus 16GB',
@@ -41,12 +46,5 @@ export const PRODUCTS: ProductItemType[] = [
         price: 8000,
         currency: 'PLN',
         image: './src/assets/imgs/img3.png',
-    },
-    {
-        id: 3,
-        name: 'iPhone 13 Max Pro 16GB',
-        price: 10000,
-        currency: 'PLN',
-        image: './src/assets/imgs/img2.png',
     },
 ];
